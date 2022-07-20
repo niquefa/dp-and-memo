@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+
+\title{Sewing Buttons With Grandma Solution}
+\author{Rafael Niquefa}
+
+\begin{document}
+
+\maketitle
+
+
+Check Problem statement here: \href{https://onlinejudge.org/external/123/12316.pdf}{Link to problem statement.}.\\
+
+And check \href{https://github.com/niquefa/dp-and-memoization}{several solutions in python, C++ and java.}\\
+
+In this solution $b_i$ is the amount of buttons of color $i$, and $kinds$ is the different colors types. \\
+
+Given this restrictions: 
+\begin{itemize}
+  \item $1 \leq m  \leq 50$
+  \item $1  \leq kinds \leq 50$
+  \item $1 \leq b_i  \leq 50$ for $i$ in $[0,kinds-1]$
+\end{itemize}
+
+Recurrence relation that solves the problem
+
+\Huge
+
+\[ f(m,t) = \sum_{i=0}^{min(m,b_t)} {m\choose i}  \times f(m-i,t+1)  \] \\
+\normalsize
+
+With the following base cases:  
+
+\begin{itemize}
+  \item $f(0,t) = 1$
+  \item $f(m,t) = 0$ if $t \geq kinds$
+\end{itemize}
+
+Remember ${n\choose k}$ is the binomial coefficient  function:
+\Large
+\[{n\choose k} = {n-1\choose k-1} + {n-1\choose k}\]
+\normalsize
+
+With the base cases:
+
+\begin{itemize}
+  \item ${n\choose k} = 1$ if $k=0$ or $k=n$
+  \item ${n\choose k} = 0$ if $k>n$
+\end{itemize}
+\end{document}
